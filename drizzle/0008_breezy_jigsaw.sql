@@ -1,1 +1,0 @@
-ALTER TABLE `groupRoles` MODIFY COLUMN `role` enum('group_owner','group_admin','kronos_owner','moderator','vip') NOT NULL;

@@ -1,2 +1,0 @@
-DROP INDEX `group_roles_scope_user_role_unique` ON `groupRoles`;--> statement-breakpoint
-ALTER TABLE `groupRoles` ADD CONSTRAINT `group_roles_scope_user_role_unique` UNIQUE(`groupId`,`telegramUserId`,`role`);

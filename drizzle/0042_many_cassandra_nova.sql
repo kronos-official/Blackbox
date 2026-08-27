@@ -1,1 +1,0 @@
-ALTER TABLE `groupSettings` ADD `groupLocked` boolean DEFAULT 0 NOT NULL;

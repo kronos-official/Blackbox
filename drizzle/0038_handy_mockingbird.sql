@@ -1,1 +1,0 @@
-ALTER TABLE `telegramUsers` ADD `privateNotificationDeliveryEnabled` boolean DEFAULT false NOT NULL;

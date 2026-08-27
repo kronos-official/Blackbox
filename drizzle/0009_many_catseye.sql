@@ -1,1 +1,0 @@
-ALTER TABLE `forcedJoinChannels` ADD `buttonLabel` varchar(64);
