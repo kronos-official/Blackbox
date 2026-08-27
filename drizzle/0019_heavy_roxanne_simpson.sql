@@ -1,0 +1,1 @@
+ALTER TABLE `groupMembers` ADD `kronosTitle` varchar(64);
