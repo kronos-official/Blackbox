@@ -1,28 +1,12 @@
-import { spawn } from "node:child_process";
-
 /**
- * Pella starts Node.js servers from a root JavaScript file.  The source repository
- * intentionally excludes build artefacts, so this shim starts the typed Express /
- * Telegraf runtime through tsx without requiring a host-side build command.
+ * Pella starts Node.js servers from a root JavaScript file. The checked-in
+ * production bundle removes the need to compile TypeScript or install tooling
+ * on Pella's constrained free tier.
  */
-const runtime = spawn(process.execPath, ["--import", "tsx", "server/_core/index.ts"], {
-  env: {
-    ...process.env,
-    NODE_ENV: process.env.NODE_ENV || "production",
-  },
-  stdio: "inherit",
-});
-
-runtime.once("error", error => {
-  console.error("[Kronos Guard] Pella runtime could not start", error);
+try {
+  process.env.NODE_ENV ||= "production";
+  await import("./pella-release/index.js");
+} catch (error) {
+  console.error("[Kronos Guard] Pella production bundle could not start", error);
   process.exitCode = 1;
-});
-
-runtime.once("exit", (code, signal) => {
-  if (signal) process.kill(process.pid, signal);
-  else process.exitCode = code ?? 1;
-});
-
-for (const signal of ["SIGINT", "SIGTERM"]) {
-  process.on(signal, () => runtime.kill(signal));
 }
