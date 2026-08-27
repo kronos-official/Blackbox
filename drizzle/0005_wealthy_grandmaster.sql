@@ -1,0 +1,1 @@
+ALTER TABLE `moderationActions` ADD `completedAt` timestamp;

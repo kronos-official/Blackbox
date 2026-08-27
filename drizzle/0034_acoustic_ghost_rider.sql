@@ -1,0 +1,1 @@
+ALTER TABLE `telegramUsers` ADD `notificationMutes` json;

@@ -1,0 +1,1 @@
+ALTER TABLE `groupMembers` ADD `telegramRole` enum('owner','administrator','member','restricted','unknown') DEFAULT 'unknown' NOT NULL;
