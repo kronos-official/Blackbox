@@ -1,0 +1,2 @@
+DROP INDEX `group_recent_messages_group_message_unique` ON `groupRecentMessages`;--> statement-breakpoint
+ALTER TABLE `groupRecentMessages` ADD CONSTRAINT `group_recent_messages_group_message_unique` UNIQUE(`groupId`,`messageId`);

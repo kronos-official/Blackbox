@@ -1,0 +1,1 @@
+ALTER TABLE `telegramUsers` ADD `preferredStatusCardStyle` varchar(16) DEFAULT 'midnight';
